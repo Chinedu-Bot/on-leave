@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ON LEAVE</title>
+    <style>
+        /* Smooth background color animation */
+        @keyframes backgroundColorChange {
+            0% { background-color: #ff5757; }
+            25% { background-color: #57ff9c; }
+            50% { background-color: #5785ff; }
+            75% { background-color: #ff57da; }
+            100% { background-color: #ff5757; }
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            animation: backgroundColorChange 10s infinite;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Text animation moving up and down */
+        .animated-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        .text1 {
+            top: 20%;
+        }
+
+        .text2 {
+            top: 40%;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Fireworks styles */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0.1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-text text1">🧘‍♂️ Chinedu-MD is Currently on Leave 🧘‍♂️</div>
+    <div class="animated-text text2">🤾‍♂️ AND WILL BE BACK VERY SOON 🤾‍♂️</div>
+
+    <script>
+        // Firework effect function
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            document.body.appendChild(firework);
+
+            // Random position and size
+            firework.style.left = `${Math.random() * 100}vw`;
+            firework.style.top = `${Math.random() * 100}vh`;
+            firework.style.width = firework.style.height = `${Math.random() * 10 + 5}px`;
+
+            // Remove firework after animation
+            setTimeout(() => firework.remove(), 1000);
+        }
+
+        // Generate fireworks continuously
+        setInterval(createFirework, 200);
+    </script>
+</body>
+</html>
